@@ -24,20 +24,18 @@ class Denuncia_m(models.Model):
 	descripcion=models.TextField()
 	latitud=models.FloatField()
 	longitud=models.FloatField()
-	img = models.FileField(upload_to='img/%Y/%m/%d', null=True)
-	video = models.FileField(upload_to='videos/%Y/%m/%d', null=True)
 
 	def __unicode__(self):
 		return self.titulo
-
+'''
 class SubirImg_m(models.Model):
 	d=models.ForeignKey(Denuncia_m,null=True, blank=True)
-	img = models.FileField(upload_to='img/%Y/%m/%d',null=True, blank=True)
+	imgx = models.FileField(upload_to='img/%Y/%m/%d',null=True, blank=True)
 	
 class SubirVideos_m(models.Model):
 	a=models.ForeignKey(Denuncia_m,null=True, blank=True)
-	video = models.FileField(upload_to='videos/%Y/%m/%d',null=True, blank=True)
-	
+	videox = models.FileField(upload_to='videos/%Y/%m/%d',null=True, blank=True)
+'''
 class Comentario_m(models.Model):
 	user=models.ForeignKey(User)
 	denuncia=models.ForeignKey(Denuncia_m,null=True, blank=True)
@@ -46,3 +44,10 @@ class Comentario_m(models.Model):
 	def __unicode__(self):
 		return self.comentario
 
+class imagenes_m(models.Model):
+    denunciaA=models.ForeignKey(Denuncia_m, null=True, blank=True)
+    imagen=models.FileField(upload_to='img/%Y/%m/%d',null=True, blank=True)
+
+class videos_m(models.Model):
+    denunciaB=models.ForeignKey(Denuncia_m, null=True, blank=True)
+    video=models.FileField(upload_to='img/%Y/%m/%d',null=True, blank=True)

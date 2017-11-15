@@ -62,20 +62,21 @@ def DenunciaX(request):
             form2=Img_form()
             form3=Video_form()
     return render(request, 'app/denuncia.html',{'form':form,'form2':form2,'form3':form3})
+
+
 def Denuncia(request):
     form=Denuncia_Form(request.POST or None)
-    form2=Img_form(request.POST or None)
-    form3=Video_form(request.POST or None)
-    #form3=Video_form(request.POST or None)
+    form2=imagenes_f(request.POST or None,request.FILES or None)
+    form3=videos_f(request.POST or None,request.FILES or None)
     if(request.method=='POST' and form.is_valid):
         formResult=form.save()
-        if(form2.is_valid):
+        if(form2.is_valid()):
             formResult2=form2.save(commit=False)
-            formResult2.d_id=formResult.id
+            formResult2.denunciaA_id=formResult.id
             formResult2.save()
-            if(form3.is_valid):
+            if(form3.is_valid()):
                 formResult3=form3.save(commit=False)
-                formResult3.a_id=formResult.id
+                formResult3.denunciaB_id=formResult.id
                 formResult3.save()
     return render(request, 'app/denuncia.html',{'form':form,'form2':form2, 'form3':form3})
 
@@ -93,7 +94,6 @@ def Denuncia_respaldp(request):
             longitud = form.cleaned_data.get("longitud")
             img = form.cleaned_data.get("img")
             video = form.cleaned_data.get("video")
-			
 			#validacion formulario 2
             form.save()
     return render(request, 'app/denuncia.html',{'form':form,'form2':form2,'form3':form3})

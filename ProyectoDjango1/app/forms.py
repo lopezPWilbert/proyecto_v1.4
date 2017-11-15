@@ -8,7 +8,7 @@ class Usuario_Form(UserCreationForm):
 		Direccion = forms.CharField(max_length =100)
 		Avatar = forms.FileField()
  
-
+'''
 class Img_form(forms.ModelForm):
 	class Meta:
 		model=SubirImg_m
@@ -18,6 +18,16 @@ class Video_form(forms.ModelForm):
 	class Meta:
 		model=SubirVideos_m
 		fields="__all__"
+'''
+
+class imagenes_f(forms.ModelForm):
+    class Meta:
+        model=imagenes_m
+        fields="__all__"
+class videos_f(forms.ModelForm):
+    class Meta:
+        model=videos_m
+        fields="__all__"
 
 class Denuncia_Form(forms.ModelForm):
 	class Meta:

@@ -5,11 +5,11 @@ admin.site.register(Usuario_m)
 admin.site.register(Comentario_m)
 
 class ImgInline(admin.StackedInline):
-	model = SubirImg_m
+	model = imagenes_m
 	extra=3
 
 class VideoInline(admin.StackedInline):
-	model = SubirVideos_m
+	model = videos_m
 	extra=3
 
 class DenunciaAdmin(admin.ModelAdmin):
