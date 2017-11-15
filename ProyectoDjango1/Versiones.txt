@@ -8,3 +8,13 @@
 		-Dejar que si no tiene video, aun asi se suba.
 		-Si hay saltos de linea o acentos en la descripcion o titulo, se arruina todo.
 		-Arreglar estilos.
+1.4 Formulario triple funcionando:
+	-Views.Denuncia() modificado
+	models
+	- Denuncia_m quite campos
+	-tabla subir img y vid eliminados
+	-agregadas tablas videos_m y imagenes_m
+	Admin
+	-modificados nombres del modelos img y vid
+
+	FALTA: agregar varias img a la vez.
